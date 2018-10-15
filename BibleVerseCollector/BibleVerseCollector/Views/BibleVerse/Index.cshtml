@@ -1,0 +1,57 @@
+﻿@model IEnumerable<BibleVerseCollector.Models.BibleVerse>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>List of Verses</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NewTestament)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BookTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ChapterNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VerseNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VerseText)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NewTestament)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BookTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ChapterNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VerseNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VerseText)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.BibleVerseID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.BibleVerseID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.BibleVerseID })
+        </td>
+    </tr>
+}
+
+</table>
